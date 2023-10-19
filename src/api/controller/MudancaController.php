@@ -2,7 +2,7 @@
 session_start();
 include_once("../data.trait.php");
 
-$idUsuario = $_POST["idUsuario"];
+$idUsuario = $_SESSION["user"]["id"];
 $objetos = $_POST["objetos"];
 $enderecoInicial = $_POST["enderecoInicial"];
 $enderecoFinal = $_POST["enderecoFinal"];

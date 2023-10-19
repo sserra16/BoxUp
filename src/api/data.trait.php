@@ -71,13 +71,13 @@ class Service
 
     try {
       $sql = "SELECT id FROM usuario
+        WHERE motorista = 1
         ORDER BY RAND()
-        LIMIT 1
-        WHERE motorista = 1;
+        LIMIT 1;
       ";
 
       $query = $this->con->query($sql);
-      $idMotorista = $query->fetch(PDO::FETCH_ASSOC);
+      $idMotorista = $query->fetch(PDO::FETCH_ASSOC)["id"];
     } catch (PDOException $e) {
       $retorno["error"] = $e->getMessage();
       $retorno["resultado"] = false;
@@ -95,6 +95,35 @@ class Service
       $retorno["data"] = "";
       $retorno["message"] = "Usuário cadastrado";
       $retorno["resultado"] = true;
+    } catch (PDOException $e) {
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
+      $retorno["data"] = "";
+    }
+
+    return $retorno;
+  }
+
+  public function BuscarMudancas($idUsuario)
+  {
+    $retorno = [];
+
+    try {
+      $sql = "SELECT * FROM mudancas WHERE id_usuario = '$idUsuario'";
+
+      $query = $this->con->query($sql);
+
+      $mudancas = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      if (!$mudancas) {
+        $retorno["error"] = "Erro ao buscar suas mudanças!";
+        $retorno["resultado"] = false;
+        $retorno["data"] = "";
+      } else {
+        $retorno["data"] = $mudancas;
+        $retorno["message"] = "Sucesso!";
+        $retorno["resultado"] = true;
+      }
     } catch (PDOException $e) {
       $retorno["error"] = $e->getMessage();
       $retorno["resultado"] = false;
