@@ -17,30 +17,18 @@ session_start();
 <?php include_once("../header.php") ?>
 
 <script>
-    function abrirmodal() {
-        var html = `<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option value="0" selected>Em andamento</option>
-  <option value="1">Concluida</option>
-  <option value="2">Cancelada</option>
-</select>`
-        swal.fire({
-            title: 'Editar mudança',
-            html: html,
-            icon: 'info'
-        })
-    };
-    $.ajax({
-        url: "/BoxUp/src/api/controller/ListarMudancaMotorista.php",
-        method: "GET",
-        success: (data) => {
-            data = JSON.parse(data);
-            let html = "";
+    function buscaMudancas() {
+        $.ajax({
+            url: "/BoxUp/src/api/controller/ListarMudancaMotorista.php",
+            method: "GET",
+            success: (data) => {
+                data = JSON.parse(data);
+                let html = "";
 
-            if (data.data.length > 0) {
+                if (data.data.length > 0) {
 
-                data.data.forEach(element => {
-                    html += `<div class="bg-white rounded-lg shadow w-80">
+                    data.data.forEach(element => {
+                        html += `<div class="bg-white rounded-lg shadow w-96">
                     <a href="#">
                     <img class="rounded-t-lg" src="/BoxUp/src/images/caminhaocartoon.png" alt="" />
                     </a>
@@ -70,26 +58,70 @@ session_start();
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 Status:
                 </p>
-                <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : "Concluída"}</p>
+                <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : element.status == 1 ? "Concluída" : "Cancelada"}</p>
                 </div>
-                <button onClick="abrirmodal()" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800  focus:outline-none  rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">
+                <button onClick="abrirmodal(${element.id})" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800  focus:outline-none  rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">
                     <img src="/BoxUP/src/images/pencil.png" width="20" />
                 </button>
 
                 </div>
                 </div>`;
-                });
-                $("#container").html(html)
-            } else {
-                $("#container").html("<p class='self-start text-2xl font-bold'>Nenhuma mudança agendada <spam class='text-blue-700'>ainda!</spam></p>")
+                    });
+                    $("#container").html(html)
+                } else {
+                    $("#container").html("<p class='self-start text-2xl font-bold'>Nenhuma mudança agendada <spam class='text-blue-700'>ainda!</spam></p>")
 
+                }
+
+            },
+            error: (error) => {
+                console.log(error)
             }
+        })
 
-        },
-        error: (error) => {
-            console.log(error)
-        }
-    })
+    }
+
+    function abrirmodal(id) {
+        var html = `<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option value="0" selected>Em andamento</option>
+  <option value="1">Concluida</option>
+  <option value="2">Cancelada</option>
+</select>`
+        swal.fire({
+            title: 'Editar mudança',
+            html: html,
+            icon: 'info'
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: "/BoxUp/src/api/controller/EditarMudanca.php",
+                    method: "POST",
+                    data: {
+                        status: $("#countries").val(),
+                        id
+                    },
+                    success: (data) => {
+                        swal.fire({
+                            icon: "success",
+                            title: "Status editado!"
+                        })
+
+                        buscaMudancas();
+                    },
+                    error: (error) => {
+                        swal.fire({
+                            icon: "error",
+                            title: data.data.message
+                        })
+
+                    }
+                })
+            }
+        })
+    };
+
+    buscaMudancas();
 </script>
 
 <div id="container" class="flex w-full mt-32 h-full items-center gap-5 px-16 flex-wrap">

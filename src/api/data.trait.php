@@ -128,12 +128,12 @@ class Service
     return $retorno;
   }
 
-  public function EditarStatus($idUsuario, $status): array
+  public function EditarStatus($idUsuario, $status, $id): array
   {
     $retorno = [];
 
     try {
-      $sql = "UPDATE mudanca SET status = $status where id_motorista = $idUsuario";
+      $sql = "UPDATE mudanca SET status = $status where id_motorista = $idUsuario AND id = $id";
       $stmt = $this->con->prepare($sql);
 
       $stmt->execute();
