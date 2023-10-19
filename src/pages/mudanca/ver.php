@@ -57,7 +57,7 @@ session_start();
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 Status:
                 </p>
-                <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : "Concluída"}</p>
+                <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : element.status == 1 ? "Concluída" : "Cancelada"}</p>
                 </div>
                 </div>
                 </div>`;
