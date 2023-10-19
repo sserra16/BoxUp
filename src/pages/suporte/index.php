@@ -15,14 +15,15 @@ session_start();
 </head>
 <?php include_once("../header.php") ?>
 
-<body class="h-screen bg-blue-50">
+<body class="">
     <!-- component -->
-    <div class="flex h-full justify-center items-center bg-white">
+    <div class="flex h-full justify-center items-center bg-gray-900">
         <!-- COMPONENT CODE -->
         <div class="container w-3/4 mx-auto px-4 lg:px-20">
-            <div class="w-full p-8 my-4 mr-auto rounded-2xl shadow-2xl">
-                <div class="flex gap-3 items-center">
-                    <h1 class="font-regular opacity-70 uppercase text-5xl">Entre em </h1><h1 class="font-bold uppercase text-5xl">contato!</h1>
+            <div class="w-full p-8 my-4 mr-auto rounded-2xl shadow-2xl bg-gray-800">
+                <div class="flex gap-2 items-center">
+                    <h1 class="font-regular opacity-70 uppercase text-xl text-white">Entre em </h1>
+                    <h1 class="font-bold text-blue-600 uppercase text-2xl">contato!</h1>
                 </div>
                 <form id='form' action="https://formsubmit.co/juancostacizilio@gmail.com" method="POST" encType='multipart/form-data'>
                     <input type="hidden" name="_captcha" value="false">
@@ -46,30 +47,30 @@ session_start();
         </div>
         <!-- COMPONENT CODE -->
     </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-<script>
-    $('#celular').mask('(00) 00000-0000', {
-        reverse: false
-    });
-    $('#enviar').click(() => {
-        swal.fire({
-            title: 'Mensagem enviada!',
-            icon: 'success'
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script>
+        $('#celular').mask('(00) 00000-0000', {
+            reverse: false
+        });
+        $('#enviar').click(() => {
+            swal.fire({
+                title: 'Mensagem enviada!',
+                icon: 'success'
+            })
         })
-    })
 
-    /*  $('#form').submit((e) => {
-         e.preventDefault();
-     }) */
+        /*  $('#form').submit((e) => {
+             e.preventDefault();
+         }) */
 
-    $('input, textarea').each((index, item) => {
-        $(item).change(() => {
-            if ($('#nome').val() != "" && $('#sobrenome').val() != "" && $('#email').val() != "" && $('#celular').val() != "" && $('#mensagem').val() != "" && $('#email').val().includes('@')) {
-                $('#enviar').removeClass('cursor-not-allowed')
-                $('#enviar').removeAttr('disabled')
-            }
+        $('input, textarea').each((index, item) => {
+            $(item).change(() => {
+                if ($('#nome').val() != "" && $('#sobrenome').val() != "" && $('#email').val() != "" && $('#celular').val() != "" && $('#mensagem').val() != "" && $('#email').val().includes('@')) {
+                    $('#enviar').removeClass('cursor-not-allowed')
+                    $('#enviar').removeAttr('disabled')
+                }
+            })
         })
-    })
-</script>
+    </script>
 
 </html>

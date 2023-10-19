@@ -16,15 +16,15 @@ session_start();
 </head>
 <?php include_once("../header.php") ?>
 
-<body class="h-screen bg-blue-50">
+<body class="h-screen">
     <!-- component -->
-    <div class="flex h-full justify-center items-center bg-white">
+    <div class="flex h-full justify-center items-center bg-gray-900">
         <!-- COMPONENT CODE -->
         <div class="container w-3/4 mx-auto px-4 lg:px-20">
-            <div class="w-full p-8 my-4 mr-auto rounded-2xl shadow-2xl">
+            <div class="w-full p-8 my-4 mr-auto rounded-2xl bg-gray-800 shadow-2xl">
                 <div class="flex gap-3 items-center">
-                    <h1 class="font-regular opacity-70 uppercase text-5xl">Agende a sua</h1>
-                    <h1 class="font-bold uppercase text-5xl">mudança!</h1>
+                    <h1 class="font-regular opacity-70 uppercase text-xl text-white">Agende a sua</h1>
+                    <h1 class="font-bold uppercase text-2xl text-blue-600">mudança!</h1>
                 </div>
                 <form>
 
