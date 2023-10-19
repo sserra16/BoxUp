@@ -12,4 +12,8 @@ $service = new Service();
 
 $result = $service->Cadastrar($nome, $email, $senha, $cpf, $usuario);
 
+if (!$result["resultado"]) {
+  http_response_code(400);
+}
+
 echo json_encode($result);

@@ -18,15 +18,17 @@ class Service
 
     try {
       $senhaCripto = md5($senha);
-      $sql = "INSERT INTO usuario (nome, senha, usuario, cpf, email) VALUES ($nome, $senhaCripto, $usuario, $cpf, $email)";
+      $sql = "INSERT INTO usuario (nome, senha, usuario, cpf, email) VALUES ('$nome', '$senhaCripto', '$usuario', '$cpf', '$email')";
 
       $stmt = $this->con->prepare($sql);
       $stmt->execute();
 
       $retorno["data"] = "";
       $retorno["message"] = "Usuário cadastrado";
+      $retorno["resultado"] = true;
     } catch (PDOException $e) {
-      $retorno["message"] = $e->getMessage();
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
       $retorno["data"] = "";
     }
 
