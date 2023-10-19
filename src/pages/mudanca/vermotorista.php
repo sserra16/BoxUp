@@ -31,17 +31,39 @@ session_start();
         })
     };
 
-    function excluirmudanca() {
+    function excluirmudanca(id) {
         var html = `<div class="flex gap-3"><button type="button" class="w-full text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700" id="excluir">Excluir</button>
                     <button type="button" class="w-full text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700" id="cancelar">Cancelar</button></div>`
-
-
 
         swal.fire({
             title: 'Tem certeza que quer excluir a mudança?',
             html: html,
             icon: 'info',
             showConfirmButton: false
+        })
+        
+        $("#excluir").click(() => {
+            $.ajax({
+                url: "/BoxUp/src/api/controller/ExcluirMudanca.php",
+                method: "POST",
+                data: {
+                    id
+                },
+                success: () => {
+                    swal.fire({
+                        icon: "success",
+                        title: "Mudança deletada com sucesso"
+                    })
+
+                    buscaMudancas();
+                },
+                error: (error) => {
+                    swal.fire({
+                        icon: "error",
+                        title: data.data.message
+                    })
+                }
+            })
         })
 
         $("#cancelar").click(() => {
@@ -50,7 +72,6 @@ session_start();
     };
 
     function buscaMudancas() {
-
         $.ajax({
             url: "/BoxUp/src/api/controller/ListarMudancaMotorista.php",
             method: "GET",
@@ -96,7 +117,7 @@ session_start();
                 <button onClick="abrirmodal(${element.id})" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800  focus:outline-none  rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">
                     <img src="/BoxUP/src/images/pencil.png" width="20" />
                 </button>
-                <button onClick="excluirmudanca()" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-red-700 hover:bg-red-800  focus:outline-none  rounded-lg text-center dark:bg-red-600 dark:hover:bg-red-700 ">
+                <button onClick="excluirmudanca(${element.id})" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-red-700 hover:bg-red-800  focus:outline-none  rounded-lg text-center dark:bg-red-600 dark:hover:bg-red-700 ">
                     <img src="/BoxUP/src/images/trash.png" width="20" />
                 </button>
 

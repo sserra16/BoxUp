@@ -149,4 +149,26 @@ class Service
 
     return $retorno;
   }
+
+  public function ExcluiMudanca($idMudanca)
+  {
+    $retorno = [];
+
+    try {
+      $sql = "DELETE FROM mudanca WHERE id = $idMudanca";
+      $stmt = $this->con->prepare($sql);
+
+      $stmt->execute();
+
+      $retorno["data"] = "";
+      $retorno["message"] = "Mudança excluída";
+      $retorno["resultado"] = true;
+    } catch (PDOException $e) {
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
+      $retorno["data"] = "";
+    }
+
+    return $retorno;
+  }
 }
