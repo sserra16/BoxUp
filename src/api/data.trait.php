@@ -64,4 +64,43 @@ class Service
 
     return $retorno;
   }
+
+  public function CriarMudanca($idUsuario, $objetos, $enderecoInicial, $enderecoFinal, $observacoes)
+  {
+    $retorno = [];
+
+    try {
+      $sql = "SELECT id FROM usuario
+        ORDER BY RAND()
+        LIMIT 1
+        WHERE motorista = 1;
+      ";
+
+      $query = $this->con->query($sql);
+      $idMotorista = $query->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
+      $retorno["data"] = "";
+
+      return $retorno;
+    }
+
+    try {
+      $sql = "INSERT INTO mudanca (id_usuario, id_motorista, objetos, endereco_inicial, endereco_final, observacoes) VALUES ('$idUsuario', '$idMotorista', '$objetos', '$enderecoInicial', '$enderecoFinal', '$observacoes')";
+
+      $stmt = $this->con->prepare($sql);
+      $stmt->execute();
+
+      $retorno["data"] = "";
+      $retorno["message"] = "Usuário cadastrado";
+      $retorno["resultado"] = true;
+    } catch (PDOException $e) {
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
+      $retorno["data"] = "";
+    }
+
+    return $retorno;
+  }
 }
