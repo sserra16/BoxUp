@@ -11,7 +11,7 @@
 <body class="h-screen">
   <nav class=" border-gray-200 fixed top-0 z-[99999999999] w-full bg-black">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="" class="flex items-center">
+      <a href="http://localhost:8080/BoxUp/src/pages/home/home.php#" class="flex items-center">
         <h1 class="text-white font-medium text-2xl border-r border-white pr-2">BoxUP</h1>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
