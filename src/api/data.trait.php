@@ -109,21 +109,16 @@ class Service
     $retorno = [];
 
     try {
-      $sql = "SELECT * FROM mudancas WHERE id_usuario = '$idUsuario'";
+      $sql = "SELECT * FROM mudanca WHERE id_usuario = '$idUsuario'";
 
       $query = $this->con->query($sql);
 
       $mudancas = $query->fetchAll(PDO::FETCH_ASSOC);
 
-      if (!$mudancas) {
-        $retorno["error"] = "Erro ao buscar suas mudanças!";
-        $retorno["resultado"] = false;
-        $retorno["data"] = "";
-      } else {
-        $retorno["data"] = $mudancas;
-        $retorno["message"] = "Sucesso!";
-        $retorno["resultado"] = true;
-      }
+
+      $retorno["data"] = $mudancas;
+      $retorno["message"] = "Sucesso!";
+      $retorno["resultado"] = true;
     } catch (PDOException $e) {
       $retorno["error"] = $e->getMessage();
       $retorno["resultado"] = false;

@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!-- component -->
 <!DOCTYPE html>
 <html lang="en">

@@ -1,8 +1,9 @@
 <?php
+session_start();
 
 include_once("../data.trait.php");
 
-$idUsuario = $_POST["idUsuario"];
+$idUsuario = $_SESSION["user"]["id"];
 
 $service = new Service();
 

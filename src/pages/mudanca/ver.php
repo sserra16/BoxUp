@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!-- component -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,38 +16,101 @@
 </head>
 <?php include_once("../header.php") ?>
 
-<body class="h-screen bg-blue-50">
-    <!-- component -->
-    <div class="flex h-full justify-center m-16 mt-32 items-start bg-white">
-        <div class="mr-auto w-1/2 rounded-2xl shadow-2xl">
-            <a href="#" class=" flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row  hover:bg-gray-100 ">
-                <img class="rounded-2xl object-cover w-full h-full md:h-auto md:w-48 " src="/BoxUp/src/images/caminhaocartoon.png" alt="">
-                <div class="flex flex-col justify-between p-4 leading-normal">
-                    <div class="flex flex-col gap-0">
-                        <p class="!m-0 font-normal text-gray-700 ">Endereço final:</p>
-                        <h5 class="!mt-0 mb-2 text-2xl break-all font-bold tracking-tight text-gray-900">ESMERALDAS</h5>
+<script>
+    $.ajax({
+        url: "/BoxUp/src/api/controller/ListarMudancaController.php",
+        method: "GET",
+        success: (data) => {
+            data = JSON.parse(data);
+            let html = "";
+
+            if (data.data.length > 0) {
+
+                data.data.forEach(element => {
+                    html += `<div class="bg-white rounded-lg shadow w-80">
+                    <a href="#">
+                    <img class="rounded-t-lg" src="/BoxUp/src/images/caminhaocartoon.png" alt="" />
+                    </a>
+                    <div class="p-5">
+                    <a href="#">
+                    <h5 id="endF" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 uppercase">${element.endereco_final}</h5>
+                    </a>
+                    <div class="flex gap-2">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Objetos:
+                    </p>
+                    <p id="obj" class="font-bold text-gray-800">${element.objetos}</p>
                     </div>
-                    <div class="flex flex-col gap-0">
-                        <p class="!m-0 font-semibold first-letter: text-gray-700 ">Endereço inicial:</p>
-                        <p class="!mt-0 mb-2 break-all"></p>
+                    <div class="flex gap-2">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Endereço Inicial:
+                    </p>
+                    <p id="endI" class="font-bold text-gray-800">${element.endereco_inicial}</p>
                     </div>
-                    <div class="flex flex-col gap-0">
-                        <p class="!m-0 font-semibold  text-gray-700 ">Status: </p>
-                        <p class="!mt-0 mb-2 break-all">aaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                    <div class="flex gap-2">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Observações:
+                    </p>
+                    <p id="obs" class="font-bold text-gray-800">${element.observacoes}</p>
                     </div>
-                    <div class="flex flex-col gap-0">
-                        <p class="!m-0 font-semibold  text-gray-700 ">Objetos a serem transportados:</p>
-                        <p class="!mt-0 mb-2 break-all"></p>
-                    </div>
-                    <div class="flex flex-col gap-0">
-                        <p class="!m-0 font-semibold  text-gray-700 ">Observações:</p>
-                        <p class="!mt-0 mb-2 break-all"></p>
-                    </div>
+            <div class="flex gap-2">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Status:
+                </p>
+                <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : "Concluída"}</p>
                 </div>
+                </div>
+                </div>`;
+                });
+                $("#container").html(html)
+            } else {
+                $("#container").html("<p class='self-start text-2xl font-bold'>Nenhuma mudança agendada <spam class='text-blue-700'>ainda!</spam></p>")
+
+            }
+
+        },
+        error: (error) => {
+            console.log(error)
+        }
+    })
+</script>
+
+<div id="container" class="flex w-full mt-32 h-full items-center gap-5 px-16 flex-wrap">
+    <!-- <div class="bg-white rounded-lg shadow w-80">
+    <a href="#">
+            <img class="rounded-t-lg" src="/BoxUp/src/images/caminhaocartoon.png" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 id="endF" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 uppercase"></h5>
             </a>
+            <div class="flex gap-2">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Objetos:
+                </p>
+                <p id="obj" class="font-bold text-gray-800"></p>
+            </div>
+            <div class="flex gap-2">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Endereço Inicial:
+                </p>
+                <p id="endI" class="font-bold text-gray-800"></p>
+            </div>
+            <div class="flex gap-2">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Observações:
+                </p>
+                <p id="obs" class="font-bold text-gray-800"></p>
+            </div>
+            <div class="flex gap-2">
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Status:
+                </p>
+                <p id="status" class="font-bold text-gray-800"></p>
+            </div>
         </div>
-    </div>
-</body>
+    </div> -->
+</div>
 
 
 <?php include_once("../footer.php") ?>
