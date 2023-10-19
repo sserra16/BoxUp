@@ -109,7 +109,7 @@ class Service
     $retorno = [];
 
     try {
-      $sql = "SELECT * FROM mudanca WHERE id_usuario = '$idUsuario'";
+      $sql = "SELECT * FROM mudanca WHERE id_motorista = '$idUsuario'";
 
       $query = $this->con->query($sql);
 
