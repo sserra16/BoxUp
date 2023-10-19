@@ -139,12 +139,14 @@ session_start();
 
 
     function abrirmodal(id) {
-        var html = `<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option value="0" selected>Em andamento</option>
-  <option value="1">Concluida</option>
-  <option value="2">Cancelada</option>
-</select>`
+        var html = `<div style="display: flex; flex-direction: column; align-items: start" class="flex flex-column items-start">
+                        <label for="selectdms" class="block mb-2 text-sm font-medium text-gray-900">Alterar status:</label>
+                        <select id="selectdms" class="border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-300 dark:border-gray-200 dark:placeholder-gray-700 dark:text-gray-700">
+                            <option value="0" selected>Em andamento</option>
+                            <option value="1">Concluida</option>
+                            <option value="2">Cancelada</option>
+                        </select>
+                    </div>`
         swal.fire({
             title: 'Editar mudança',
             html: html,
