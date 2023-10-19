@@ -28,39 +28,43 @@ session_start();
 
                 data.data.forEach(element => {
                     html += `<div class="bg-white rounded-lg shadow w-80">
-                    <a href="#">
-                    <img class="rounded-t-lg" src="/BoxUp/src/images/caminhaocartoon.png" alt="" />
-                    </a>
-                    <div class="p-5">
-                    <a href="#">
-                    <h5 id="endF" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 uppercase">${element.endereco_final}</h5>
-                    </a>
-                    <div class="flex gap-2">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Objetos:
-                    </p>
-                    <p id="obj" class="font-bold text-gray-800">${element.objetos}</p>
-                    </div>
-                    <div class="flex gap-2">
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Endereço Inicial:
-                    </p>
-                    <p id="endI" class="font-bold text-gray-800">${element.endereco_inicial}</p>
-                    </div>
-                    <div class="flex gap-2">
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Observações:
-                    </p>
-                    <p id="obs" class="font-bold text-gray-800">${element.observacoes}</p>
-                    </div>
-            <div class="flex gap-2">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Status:
-                </p>
-                <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : element.status == 1 ? "Concluída" : "Cancelada"}</p>
-                </div>
-                </div>
-                </div>`;
+                                <a href="#">
+                                    <img class="rounded-t-lg" src="/BoxUp/src/images/caminhaocartoon.png" alt="" />
+                                </a>
+                                <div class="p-5">
+                                    <a href="#">
+                                        <h5 id="endF" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 uppercase">${element.endereco_final}</h5>
+                                    </a>
+                                    <div class="flex gap-2">
+                                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                            Objetos:
+                                        </p>
+                                        <p id="obj" class="font-bold text-gray-800">
+                                            ${element.objetos}
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                            Endereço Inicial:
+                                        </p>
+                                        <p id="endI" class="font-bold text-gray-800">
+                                            ${element.endereco_inicial}
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                            Observações:
+                                        </p>
+                                    <p id="obs" class="font-bold text-gray-800">${element.observacoes}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                    Status:
+                                    </p>
+                                    <p id="status" class="font-bold text-gray-800">${element.status == 0 ? "Em andamento" : element.status == 1 ? "Concluída" : "Cancelada"}</p>
+                                    </div>
+                                </div>
+                            </div>`;
                 });
                 $("#container").html(html)
             } else {

@@ -41,7 +41,7 @@ session_start();
             icon: 'info',
             showConfirmButton: false
         })
-        
+
         $("#excluir").click(() => {
             $.ajax({
                 url: "/BoxUp/src/api/controller/ExcluirMudanca.php",
@@ -157,7 +157,7 @@ session_start();
                     url: "/BoxUp/src/api/controller/EditarMudanca.php",
                     method: "POST",
                     data: {
-                        status: $("#countries").val(),
+                        status: $("#selectdms").val(),
                         id
                     },
                     success: (data) => {
@@ -169,9 +169,10 @@ session_start();
                         buscaMudancas();
                     },
                     error: (error) => {
+                        console.log(error)
                         swal.fire({
                             icon: "error",
-                            title: data.data.message
+                            title: error.error
                         })
 
                     }
