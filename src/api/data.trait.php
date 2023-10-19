@@ -127,4 +127,26 @@ class Service
 
     return $retorno;
   }
+
+  public function EditarStatus($idUsuario, $status): array
+  {
+    $retorno = [];
+
+    try {
+      $sql = "UPDATE mudanca SET status = $status where id_motorista = $idUsuario";
+      $stmt = $this->con->prepare($sql);
+
+      $stmt->execute();
+
+      $retorno["data"] = "";
+      $retorno["message"] = "Status Editado";
+      $retorno["resultado"] = true;
+    } catch (PDOException $e) {
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
+      $retorno["data"] = "";
+    }
+
+    return $retorno;
+  }
 }
