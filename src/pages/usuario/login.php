@@ -75,6 +75,8 @@ include_once('../toast.php');
               title: "Sucesso",
               html: data.message,
               icon: "success"
+            }).then(() => {
+              window.location.href = window.location.href.replace('usuario', 'home').replace('login', 'home')
             })
           },
           error: (error) => {
