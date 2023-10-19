@@ -14,7 +14,7 @@
 <body class="h-screen bg-blue-50">
     <main class="p-5 bg-light-blue">
         <div class="flex justify-center items-start my-2">
-            <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+            <div class="w-full sm:w-10/12 md:w-1/2 my-1 pt-16">
                 <h2 class="text-2xl font-semibold text-vnet-blue mb-2">FAQ - Perguntas frequentes, termos, Etc.</h2>
                 <h4 class="text-lg font-semibold text-vnet-blue mb-2 opacity-80 mt-3">Bem-vindo ao nosso site de transporte de objetos. Antes de utilizar nossos serviços, pedimos que você leia atentamente e concorde com esta política. Ao utilizar nosso site, você está concordando com a política estabelecida.</h4>
                 <ul class="flex flex-col">
