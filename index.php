@@ -5,54 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Box Up!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <script type="module" src="../js/tailwind.config.mjs"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </head>
-<?php include_once("./src/pages/header.php") ?>
 
-<body style="background-color: #FFFEE6; ">
-  <main style="height: 100vh">
+<body class="bg-[#FFFEE6]" style="background-color: #FFFEE6; ">
+  <main class="h-screen" style="height: 100vh">
     <header class="bg-black h-16 flex items-center justify-between pr-10 pl-10 p-2 sticky top-0">
       <div>
         <h1 class="text-white font-medium text-2xl border-r border-white pr-2">BoxUP</h1>
       </div>
       <div>
-        <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" class="inline-flex items-center p-2 text-sm font-medium text-center text-white bg-black rounded-lg" type="button">
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
-            <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-          </svg>
-        </button>
-
-        <!-- Dropdown menu -->
-        <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
-            <li>
-              <a href="home.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Home</a>
-            </li>
-            <li>
-              <a href="loginmotorisa" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Motorista</a>
-            </li>
-            <li>
-              <a href="loginUsuario" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Usuarios</a>
-            </li>
-          </ul>
-          <div class="py-2">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sua Conta</a>
-          </div>
-        </div>
+        <a href="./src/pages/usuario/login.php">
+          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-1">Entre / cadastra-se</button>
+        </a>
       </div>
     </header>
 
     <div class="div1">
-      <div class="d-flex flex-column align-items-start w-50">
-        <h1 class="text-start " style="
+      <div class="d-flex flex-column align-items-start w-50       flex flex-col  items-start w-[50%]">
+        <h1 class="text-start text-[45px] font-semibold m-0 p-0 " style="
         font-size: 45px;
         font-weight:600;
             margin: 0;
             padding: 0;
           ">
           Agende sua mudança <br> aqui na
-          <span style="color: #2e89c0">BoxUp</span>!
+          <span class="text-blue-700">BoxUp</span>!
         </h1>
-        <div class="text-black d-flex justify-content-start text-start" style="
+        <div class=" text-black d-flex justify-content-start text-start opacity-80 text-[20px] mt-[20px] font-semibold flex justify-start" style="
             opacity: 80%;
             font-size: 20px;
             margin-top: 20px;
@@ -62,11 +50,9 @@
           Uma Nova Maneira de Planejar Suas Mudanças: Descubra, Agende e Realize Mudanças Residenciais com Conforto e Confiabilidade Garantidos. <br />
           Sua nova jornada começa aqui.
         </div>
-        <button id="scrollMostre" class="btn btn-primary colorblue" style="margin-top: 1rem">
-          <span style="color: #fff; text-shadow: none !important; font-size: larger">
-            Mostre-me mais
-          </span>
-        </button>
+        <a href="./src/pages/usuario/login.php">
+          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-5">Mostre-me mais</button>
+        </a>
       </div>
       <div class="imagemlanding"></div>
     </div>
