@@ -11,13 +11,14 @@
 </head>
 <?php include_once("../header.php") ?>
 
-    <!-- component --> 
-    <div class="flex h-full justify-center items-center bg-white mt-5">
+<body class="h-screen bg-blue-50">
+    <!-- component -->
+    <div class="flex h-full justify-center items-center bg-white">
         <!-- COMPONENT CODE -->
-        <div class="container w-3/4 mx-auto flex items-center  my-4 px-4 lg:px-20">
-            <div class="w-full p-8 my-4 mr-auto rounded-2xl shadow-2xl ">
-                <div class="flex gap-4 items-center">
-                    <h1 class="font-regular opacity-60 uppercase text-5xl">Entre em </h1><h1 class="font-bold uppercase text-5xl">contato!</h1>
+        <div class="container w-3/4 mx-auto px-4 lg:px-20">
+            <div class="w-full p-8 my-4 mr-auto rounded-2xl shadow-2xl">
+                <div class="flex gap-3 items-center">
+                    <h1 class="font-regular opacity-70 uppercase text-5xl">Entre em </h1><h1 class="font-bold uppercase text-5xl">contato!</h1>
                 </div>
                 <form id='form' action="https://formsubmit.co/juancostacizilio@gmail.com" method="POST" encType='multipart/form-data'>
                     <input type="hidden" name="_captcha" value="false">
