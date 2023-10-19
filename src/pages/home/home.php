@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <head>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -29,12 +34,17 @@
           <li>
             <a href="/BoxUP/src/pages/politicas/index.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">FAQ</a>
           </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minha mudança</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minhas mudanças</a>
-          </li>
+          <?php
+          if ($_SESSION["user"]["motorista"] == 1) {
+            echo '<li>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minhas mudanças</a>
+                  </li>';
+          } else {
+            echo '<li>
+                    <a href="/BoxUp/src/pages/mudanca/ver.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minha mudança</a>
+                  </li>';
+          }
+          ?>
         </ul>
       </div>
     </div>
@@ -98,7 +108,9 @@
       </span>
     </button>
     <div class="w-full flex items-center justify-center">
-      <button type="button" class="absolute bottom-20 p-2 w-1/3 transition-all duration-500 justify-center z-[99999999] border-2 hover:bg-blue-700 hover:border-blue-900   border-blue-700 uppercase text-white bg-transparent  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg dark:bg-transparent focus:outline-none dark:focus:ring-blue-800">Agendar mudança</button>
+      <a href="/BoxUp/src/pages/mudanca/index.php" class="w-full flex justify-center">
+        <button type="button" class="absolute bottom-20 p-2 w-1/3 transition-all duration-500 justify-center z-[99999999] border-2 hover:bg-blue-700 hover:border-blue-900   border-blue-700 uppercase text-white bg-transparent  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg dark:bg-transparent focus:outline-none dark:focus:ring-blue-800">Agendar mudança</button>
+      </a>
     </div>
   </div>
 

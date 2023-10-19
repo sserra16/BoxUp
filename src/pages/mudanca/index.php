@@ -21,19 +21,18 @@
                     <h1 class="font-regular opacity-70 uppercase text-5xl">Agende a sua</h1>
                     <h1 class="font-bold uppercase text-5xl">mudança!</h1>
                 </div>
-                <form id='form' action="https://formsubmit.co/juancostacizilio@gmail.com" method="POST" encType='multipart/form-data'>
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="http://localhost:8080/BoxUp/src/pages/suporte/index.php">
+                <form>
+
                     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
                         <input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Endereço inicial*" id="end_inicial" name="end_inicial" required />
-                        <input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="email" placeholder="Endereço final*" id="end_final" name="end_final" required />
+                        <input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Endereço final*" id="end_final" name="end_final" required />
                     </div>
                     <input class="w-full bg-gray-100 text-gray-900 mt-4 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Objetos a serem transportados*" id="objetos" name="objetos" required />
                     <div class="my-4">
                         <textarea placeholder="Observações" class="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name="observacao" id="observacao"></textarea>
                     </div>
                     <div class="my-2 w-1/4 lg:w-1/4">
-                        <button id="enviar" disabled class="cursor-not-allowed uppercase text-sm font-bold tracking-wide bg-blue-600 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+                        <button type="button" id="enviar" disabled class="cursor-not-allowed uppercase text-sm font-bold tracking-wide bg-blue-600 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
                             Agendar
                         </button>
                     </div>
@@ -49,10 +48,10 @@
                 url: "/BoxUp/src/api/controller/MudancaController.php",
                 method: "POST",
                 data: {
-                    end_incial,
-                    end_final,
-                    objetos,
-                    observacoes
+                    enderecoInicial: $("#end_inicial").val(),
+                    enderecoFinal: $("#end_final").val(),
+                    objetos: $("#objetos").val(),
+                    observacoes: $("#observacao").val()
                 },
                 success: (data) => {
                     data = JSON.parse(data);
@@ -72,6 +71,11 @@
                     })
                 }
             })
+
+            $("#end_inicial").val('')
+            $("#end_final").val('')
+            $("#objetos").val('')
+            $("#observacao").val('')
 
         })
 
