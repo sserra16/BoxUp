@@ -42,7 +42,6 @@
         </div>
         <!-- COMPONENT CODE -->
     </div>
-</body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 <script>
     $('#celular').mask('(00) 00000-0000', {
