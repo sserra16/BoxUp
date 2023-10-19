@@ -22,7 +22,7 @@
         </svg>
       </button>
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
           <li>
             <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Suporte</a>
           </li>
@@ -97,7 +97,9 @@
         <span class="sr-only">Next</span>
       </span>
     </button>
-    <button type="button" class="absolute bottom-20 p-2 inset-x-0 mx-[40rem] transition-all duration-500 justify-center z-[99999999] border-2 hover:bg-blue-700 hover:border-blue-900   border-blue-700 uppercase text-white bg-transparent  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg dark:bg-transparent focus:outline-none dark:focus:ring-blue-800">Agendar mudança</button>
+    <div class="w-full flex items-center justify-center">
+      <button type="button" class="absolute bottom-20 p-2 w-1/3 transition-all duration-500 justify-center z-[99999999] border-2 hover:bg-blue-700 hover:border-blue-900   border-blue-700 uppercase text-white bg-transparent  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg dark:bg-transparent focus:outline-none dark:focus:ring-blue-800">Agendar mudança</button>
+    </div>
   </div>
 
 
