@@ -7,5 +7,5 @@
   <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
-<body>
+<body class="vh-100">
 
