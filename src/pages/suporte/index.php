@@ -17,8 +17,8 @@
         <!-- COMPONENT CODE -->
         <div class="container w-3/4 mx-auto my-4 px-4 lg:px-20">
             <div class="w-full p-8 my-4 mr-auto rounded-2xl shadow-2xl">
-                <div class="flex">
-                    <h1 class="font-bold uppercase text-5xl">Entre em contato!</h1>
+                <div class="flex gap-3 items-center">
+                    <h1 class="font-regular opacity-70 uppercase text-5xl">Entre em </h1><h1 class="font-bold uppercase text-5xl">contato!</h1>
                 </div>
                 <form id='form' action="https://formsubmit.co/juancostacizilio@gmail.com" method="POST" encType='multipart/form-data'>
                     <input type="hidden" name="_captcha" value="false">
@@ -55,9 +55,9 @@
         })
     })
 
-   /*  $('#form').submit((e) => {
-        e.preventDefault();
-    }) */
+    /*  $('#form').submit((e) => {
+         e.preventDefault();
+     }) */
 
     $('input, textarea').each((index, item) => {
         $(item).change(() => {
