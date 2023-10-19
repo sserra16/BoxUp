@@ -109,7 +109,7 @@ session_start();
     </button>
     <div class="w-full flex items-center justify-center">
       <a href="/BoxUp/src/pages/mudanca/index.php" class="w-full flex justify-center">
-        <button type="button" class="absolute bottom-20 p-2 w-1/3 transition-all duration-500 justify-center z-[99999999] border-2 hover:bg-blue-700 hover:border-blue-900   border-blue-700 uppercase text-white bg-transparent  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg dark:bg-transparent focus:outline-none dark:focus:ring-blue-800">Agendar mudança</button>
+        <button type="button" class="absolute bottom-20 p-2 w-1/4 transition-all duration-500 justify-center z-[99999999] border-2 hover:bg-blue-700 hover:border-blue-900   border-blue-700 uppercase text-white bg-transparent  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg dark:bg-transparent focus:outline-none dark:focus:ring-blue-800">Agendar mudança</button>
       </a>
     </div>
   </div>
