@@ -8,7 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </head>
 
-<body class="h-screen">
+<body class="h-screen !bg-black">
 
   <nav class=" border-gray-200 fixed top-0 z-[99999999999] w-full bg-black">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
