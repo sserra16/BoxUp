@@ -19,15 +19,33 @@ session_start();
 <script>
     function abrirmodal() {
         var html = `<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option value="0" selected>Em andamento</option>
-  <option value="1">Concluida</option>
-  <option value="2">Cancelada</option>
-</select>`
+                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="0" selected>Em andamento</option>
+                        <option value="1">Concluida</option>
+                        <option value="2">Cancelada</option>
+                    </select>`
         swal.fire({
             title: 'Editar mudança',
             html: html,
             icon: 'info'
+        })
+    };
+
+    function excluirmudanca() {
+        var html = `<div class="flex gap-3"><button type="button" class="w-full text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700" id="excluir">Excluir</button>
+                    <button type="button" class="w-full text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700" id="cancelar">Cancelar</button></div>`
+
+
+
+        swal.fire({
+            title: 'Tem certeza que quer excluir a mudança?',
+            html: html,
+            icon: 'info',
+            showConfirmButton: false
+        })
+
+        $("#cancelar").click(() => {
+            swal.close()
         })
     };
     $.ajax({
@@ -74,6 +92,9 @@ session_start();
                 </div>
                 <button onClick="abrirmodal()" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800  focus:outline-none  rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">
                     <img src="/BoxUP/src/images/pencil.png" width="20" />
+                </button>
+                <button onClick="excluirmudanca()" type="button" class="px-2 py-2 text-sm font-medium text-white inline-flex items-center bg-red-700 hover:bg-red-800  focus:outline-none  rounded-lg text-center dark:bg-red-600 dark:hover:bg-red-700 ">
+                    <img src="/BoxUP/src/images/trash.png" width="20" />
                 </button>
 
                 </div>
